@@ -17,7 +17,7 @@ export const useScrollAnimation = (threshold = 0.1) => {
     handleScroll(); // Check on mount
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [hasAnimated]);
+  }, [hasAnimated, threshold]);
 
   return { isVisible, hasAnimated };
 };

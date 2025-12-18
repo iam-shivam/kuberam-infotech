@@ -1,6 +1,6 @@
 // src/components/sections/Services.tsx
-import { motion } from 'framer-motion';
-import { Code, Server, Cloud, Cpu, Zap, ArrowRight, Sparkles } from 'lucide-react';
+import { motion, type Variants } from 'framer-motion';
+import { Code, Server, Cloud, Cpu, ArrowRight, Sparkles } from 'lucide-react';
 
 const Services = () => {
   const services = [
@@ -56,17 +56,27 @@ const Services = () => {
     },
   };
 
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-      },
+  const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 0.5,
     },
-  };
+  },
+  hover: {
+    y: -10,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
 
   const imageVariants = {
     hidden: { scale: 0.8, opacity: 0 },
