@@ -7,6 +7,7 @@ import WhyChooseUs from './components/sections/WhyChooseUs';
 import TechStack from './components/sections/TechStack';
 import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
+import FloatingContactButtons from './components/shared/FloatingContactButtons';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <FloatingContactButtons />
     </div>
   );
 }
