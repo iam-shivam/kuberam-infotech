@@ -46,30 +46,58 @@ const Hero = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl">
-              We transform complex challenges into elegant, high-performance digital solutions.
-              From enterprise applications to cutting-edge automation, we engineer growth.
+              We design and develop powerful digital solutions that scale with your business.
+              <span className="bg-gradient-to-r from-gold via-cyan to-electric bg-clip-text text-transparent">
+                From modern applications to smart automation, we help ideas grow into impact.</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <motion.button
+              {/* <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-gradient-to-r from-gold to-cyan text-navy-900 font-bold rounded-lg flex items-center justify-center space-x-2"
               >
                 <span>Start Your Project</span>
                 <ArrowRight size={20} />
+              </motion.button> */}
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  // Open the contact popup
+                  if ((window as any).openContactPopup) {
+                    (window as any).openContactPopup();
+                  } else {
+                    // Fallback: scroll to contact section
+                    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="px-8 py-4 bg-gradient-to-r from-gold to-cyan text-navy-900 font-bold rounded-lg flex items-center justify-center space-x-2"
+              >
+                <span>Start Your Project</span>
+                <ArrowRight size={20} />
               </motion.button>
 
-              <motion.button
+              {/* <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 border-2 border-cyan/30 text-cyan font-semibold rounded-lg hover:bg-cyan/10 transition-colors"
               >
                 View Case Studies
+              </motion.button> */}
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => document.querySelector('#case-studies')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-8 py-4 border-2 border-cyan/30 text-cyan font-semibold rounded-lg hover:bg-cyan/10 transition-colors"
+              >
+                View Case Studies
               </motion.button>
+
             </div>
 
-            <div className="flex items-center space-x-8 mt-12">
+            {/* <div className="flex items-center space-x-8 mt-12">
               <div className="text-center">
                 <div className="text-3xl font-bold text-white">50+</div>
                 <div className="text-sm text-gray-400">Projects Delivered</div>
@@ -84,7 +112,7 @@ const Hero = () => {
                 <div className="text-3xl font-bold text-white">24/7</div>
                 <div className="text-sm text-gray-400">Support</div>
               </div>
-            </div>
+            </div> */}
           </motion.div>
 
           <motion.div

@@ -1,6 +1,6 @@
 // src/components/sections/Services.tsx
 import { motion, type Variants } from 'framer-motion';
-import { Code, Server, Cloud, Cpu, ArrowRight, Sparkles } from 'lucide-react';
+import { Code, Server, Cloud, Cpu, ArrowRight, Sparkles, Palette, Smartphone } from 'lucide-react';
 
 const Services = () => {
   const services = [
@@ -16,6 +16,26 @@ const Services = () => {
     },
     {
       id: 2,
+      icon: Smartphone,
+      title: 'Mobile Development',
+      description: 'Cross-platform mobile apps with React Native and Expo.',
+      features: ['Cross-platform', 'Native Performance', 'Push Notifications'],
+      gradient: 'from-cyan to-electric',
+      image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop',
+      // Alternative AI image: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&auto=format&fit=crop
+    },
+    {
+      id: 3,
+      icon: Palette,
+      title: 'UI/UX Design',
+      description: 'User-friendly interfaces and experiences for web and mobile apps.',
+      features: ['Wireframing', 'Prototyping', 'UI/UX Consulting'],
+      gradient: 'from-cyan to-electric',
+      image: 'https://images.unsplash.com/photo-1545235617-9465d2a55698?w=800&auto=format&fit=crop',
+      // Alternative AI image: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&auto=format&fit=crop
+    },
+    {
+      id: 4,
       icon: Server,
       title: 'Backend & APIs',
       description: 'Scalable server-side solutions with Node.js, Express, and microservices.',
@@ -25,7 +45,7 @@ const Services = () => {
       // Alternative: https://images.unsplash.com/photo-1629654291660-3c98113a0438?w=800&auto=format&fit=crop
     },
     {
-      id: 3,
+      id: 5,
       icon: Cloud,
       title: 'Cloud & DevOps',
       description: 'Cloud infrastructure, CI/CD pipelines, and container orchestration.',
@@ -35,15 +55,21 @@ const Services = () => {
       // Alternative: https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&auto=format&fit=crop
     },
     {
-      id: 4,
+      id: 6,
       icon: Cpu,
-      title: 'AI & Automation',
-      description: 'Intelligent solutions leveraging machine learning and automation.',
-      features: ['ML Integration', 'Process Automation', 'Data Analytics'],
+      title: 'AI, Automation & Data Labeling',
+      description: 'Intelligent solutions powered by machine learning, automation, and high-quality labeled data.',
+      features: [
+        'Machine Learning Integration',
+        'Process Automation',
+        'Data Analytics & Insights',
+        'Data Labeling & Annotation',
+        'Model Training & Optimization'
+      ],
       gradient: 'from-gold to-electric',
       image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop',
-      // AI specific: https://images.unsplash.com/photo-1677442135136-760c81240b4c?w=800&auto=format&fit=crop
-    },
+    }
+
   ];
 
   const containerVariants = {
@@ -57,26 +83,26 @@ const Services = () => {
   };
 
   const itemVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 0.5,
+    hidden: {
+      opacity: 0,
+      y: 30,
     },
-  },
-  hover: {
-    y: -10,
-    transition: {
-      duration: 0.3,
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 0.5,
+      },
     },
-  },
-};
+    hover: {
+      y: -10,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
 
   const imageVariants = {
     hidden: { scale: 0.8, opacity: 0 },
@@ -110,7 +136,7 @@ const Services = () => {
       {/* Animated Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-cyan/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-electric/5 rounded-full blur-3xl"></div>
-      
+
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -127,7 +153,7 @@ const Services = () => {
             <Sparkles className="text-gold" />
             <span className="text-gold font-medium">Our Expertise</span>
           </motion.div>
-          
+
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             <span className="text-white">Our </span>
             <span className="bg-gradient-to-r from-cyan to-electric bg-clip-text text-transparent">
@@ -154,7 +180,7 @@ const Services = () => {
               className="group relative"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-cyan/10 to-electric/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
+
               <motion.div
                 variants={contentVariants}
                 className="relative glass-card overflow-hidden rounded-3xl h-full"
@@ -176,7 +202,7 @@ const Services = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent"></div>
                   </motion.div>
-                  
+
                   {/* Floating Icon */}
                   <motion.div
                     animate={{ rotate: [0, 10, -10, 0] }}
@@ -185,7 +211,7 @@ const Services = () => {
                   >
                     <service.icon className="text-navy-900" size={32} />
                   </motion.div>
-                  
+
                   {/* Animated Particles */}
                   <div className="absolute top-4 left-4">
                     {[1, 2, 3].map((i) => (
@@ -209,7 +235,7 @@ const Services = () => {
                       <p className="text-gray-400">{service.description}</p>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-3 mb-6">
                     {service.features.map((feature, idx) => (
                       <motion.div
@@ -227,7 +253,7 @@ const Services = () => {
                       </motion.div>
                     ))}
                   </div>
-                  
+
                   <motion.button
                     whileHover={{ x: 5 }}
                     whileTap={{ scale: 0.95 }}

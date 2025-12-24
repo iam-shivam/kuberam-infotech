@@ -1,15 +1,15 @@
 // src/components/sections/WhyChooseUs.tsx
 import { easeInOut, motion, type Variants } from 'framer-motion';
-import { 
-  Shield, 
-  Zap, 
-  Code, 
-  TrendingUp, 
-  Users, 
-  Clock, 
+import {
+  Shield,
+  Zap,
+  Code,
+  TrendingUp,
+  Users,
+  Clock,
   Award,
   CheckCircle,
-  ArrowRight,
+  // ArrowRight,
   Star
 } from 'lucide-react';
 
@@ -97,34 +97,34 @@ const WhyChooseUs = () => {
   };
 
   const itemVariants: Variants = {
-  hidden: { y: 50, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      duration: 0.5, // add a duration if needed
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        duration: 0.5, // add a duration if needed
+      },
     },
-  },
-};
+  };
 
 
-const floatAnimation = {
-  y: [0, -15, 0],
-  transition: {
-    duration: 3,
-    repeat: Infinity,
-    ease: easeInOut,
-  },
-};
+  const floatAnimation = {
+    y: [0, -15, 0],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: easeInOut,
+    },
+  };
 
   return (
     <section id="why-us" className="section-padding bg-navy-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-1/4 left-10 w-64 h-64 bg-cyan/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-gold/5 rounded-full blur-3xl"></div>
-      
+
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -141,7 +141,7 @@ const floatAnimation = {
             <Star className="text-gold w-4 h-4" />
             <span className="text-gold text-sm font-medium">Why Choose Us</span>
           </motion.div>
-          
+
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             <span className="text-white">Building </span>
             <span className="bg-gradient-to-r from-gold to-cyan bg-clip-text text-transparent">
@@ -169,7 +169,7 @@ const floatAnimation = {
               className="group relative"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-cyan/5 to-electric/5 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
+
               <div className="relative glass-card overflow-hidden rounded-3xl h-full">
                 <div className="flex flex-col md:flex-row">
                   {/* Image Section */}
@@ -187,7 +187,7 @@ const floatAnimation = {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-transparent to-transparent"></div>
                     </div>
-                    
+
                     {/* Floating Icon */}
                     <motion.div
                       animate={{ rotate: [0, 360] }}
@@ -273,7 +273,7 @@ const floatAnimation = {
             >
               {/* Animated Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-cyan/5 to-electric/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
+
               <motion.div
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
@@ -281,7 +281,7 @@ const floatAnimation = {
               >
                 <benefit.icon className="text-navy-900" size={24} />
               </motion.div>
-              
+
               <div className="text-3xl font-bold text-white mb-2">{benefit.count}</div>
               <h4 className="text-lg font-semibold text-white mb-2">{benefit.title}</h4>
               <p className="text-gray-400 text-sm">{benefit.description}</p>
@@ -297,7 +297,7 @@ const floatAnimation = {
           className="relative overflow-hidden rounded-3xl"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-cyan/20 via-gold/10 to-electric/20"></div>
-          
+
           <div className="relative glass-card p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
@@ -307,7 +307,7 @@ const floatAnimation = {
                 <p className="text-gray-400 mb-6">
                   Join 150+ satisfied clients who trust us with their digital transformation.
                 </p>
-                
+
                 <div className="space-y-4">
                   {[
                     'Free consultation session',
@@ -328,17 +328,29 @@ const floatAnimation = {
                   ))}
                 </div>
               </div>
-              
+
               <div className="text-center">
                 <motion.button
+                  //   whileHover={{ scale: 1.05 }}
+                  //   whileTap={{ scale: 0.95 }}
+                  //   className="px-8 py-4 bg-gradient-to-r from-gold to-cyan text-navy-900 font-bold rounded-lg flex items-center justify-center space-x-3 mx-auto shadow-lg shadow-gold/20"
+                  // >
+                  //   <span>Start Free Consultation</span>
+                  //   <ArrowRight size={20} />
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gradient-to-r from-gold to-cyan text-navy-900 font-bold rounded-lg flex items-center justify-center space-x-3 mx-auto shadow-lg shadow-gold/20"
+                  onClick={() => {
+                    if ((window as any).openContactPopup) {
+                      (window as any).openContactPopup();
+                    } else {
+                      document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="px-8 py-3 bg-gradient-to-r from-gold to-cyan text-navy-900 font-bold rounded-lg"
                 >
-                  <span>Start Free Consultation</span>
-                  <ArrowRight size={20} />
+                  Start Free Consultation
                 </motion.button>
-                
+
                 <p className="text-gray-400 text-sm mt-4">
                   No commitment • 30-minute session • Expert advice
                 </p>
