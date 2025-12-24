@@ -142,20 +142,20 @@ const TimedContactPopup = () => {
                     <>
                       {/* Promo Message */}
                       <div className="mb-6">
-                        <div className="flex items-center space-x-2 mb-3">
+                        {/* <div className="flex items-center space-x-2 mb-3">
                           <Sparkles className="text-gold" size={16} />
                           <span className="text-sm text-gold font-medium">Limited Time Offer</span>
-                        </div>
+                        </div> */}
                         <h3 className="text-xl font-bold text-white mb-2">
                           Get Free Consultation
                         </h3>
                         <p className="text-gray-400 text-sm">
-                          Schedule a 30-minute call with our experts. Limited spots available!
+                          Schedule a 30-minute call with our experts.
                         </p>
                       </div>
 
                       {/* Countdown Timer */}
-                      <div className="mb-6">
+                      {/* <div className="mb-6">
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center space-x-2">
                             <Clock className="text-cyan" size={14} />
@@ -173,13 +173,15 @@ const TimedContactPopup = () => {
                             className="h-full bg-gradient-to-r from-gold to-cyan"
                           />
                         </div>
-                      </div>
+                      </div> */}
 
                       {/* Form */}
                       <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
                           <label className="block text-sm font-medium text-gray-300 mb-2">
+                          <span className="text-sm text-gold font-medium">
                             Your Name *
+                          </span>
                           </label>
                           <input
                             type="text"
@@ -194,7 +196,9 @@ const TimedContactPopup = () => {
 
                         <div>
                           <label className="block text-sm font-medium text-gray-300 mb-2">
+                          <span className="text-sm text-gold font-medium">
                             Email Address *
+                            </span>
                           </label>
                           <input
                             type="email"
@@ -209,7 +213,9 @@ const TimedContactPopup = () => {
 
                         <div>
                           <label className="block text-sm font-medium text-gray-300 mb-2">
+                          <span className="text-sm text-gold font-medium">
                             Project Details *
+                            </span>
                           </label>
                           <textarea
                             name="message"
@@ -245,8 +251,8 @@ const TimedContactPopup = () => {
               </div>
 
               {/* Decorative Elements */}
-              <div className="absolute -top-3 -left-3 w-6 h-6 bg-electric rounded-full animate-pulse"></div>
-              <div className="absolute -bottom-3 -right-3 w-8 h-8 bg-cyan rounded-full animate-pulse"></div>
+              {/* <div className="absolute -top-3 -left-3 w-6 h-6 bg-electric rounded-full animate-pulse"></div> */}
+              {/* <div className="absolute -bottom-3 -right-3 w-8 h-8 bg-cyan rounded-full animate-pulse"></div> */}
             </motion.div>
           </motion.div>
         </>

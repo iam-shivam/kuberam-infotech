@@ -8,7 +8,7 @@ import TechStack from './components/sections/TechStack';
 import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
 import FloatingContactButtons from './components/shared/FloatingContactButtons';
-import IndustriesWeServe from './components/sections/IndustriesWeServe';
+// import IndustriesWeServe from './components/sections/IndustriesWeServe';
 import CaseStudies from './components/sections/CaseStudies';
 import TimedContactPopup from './components/sections/TimedContactPopup';
 
@@ -20,7 +20,7 @@ function App() {
         <Hero />
         <About />
         <Services />
-        <IndustriesWeServe />
+        {/* <IndustriesWeServe /> */}
         <CaseStudies />
         <WhyChooseUs />
         <TechStack />

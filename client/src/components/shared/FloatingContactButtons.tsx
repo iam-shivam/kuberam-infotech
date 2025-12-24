@@ -63,7 +63,7 @@ const FloatingContactButtons = () => {
       description: 'Instant chat support',
       color: 'bg-green-500 hover:bg-green-600',
       hoverColor: 'bg-green-500/10',
-      link: 'https://wa.me/1234567890',
+      link: 'https://wa.me/9274774155',
       delay: 0,
     },
     {
@@ -80,7 +80,7 @@ const FloatingContactButtons = () => {
       id: 3,
       icon: Phone,
       label: 'Call',
-      description: '+1 (555) 123-4567',
+      description: '+91 9274774155',
       color: 'bg-cyan hover:bg-cyan/90',
       hoverColor: 'bg-cyan/10',
       link: 'tel:+15551234567',
@@ -89,7 +89,7 @@ const FloatingContactButtons = () => {
     {
       id: 4,
       icon: MessageSquare,
-      label: 'Live Chat',
+      label: 'Live Chat Coming Soon!',
       description: 'Available now',
       color: 'bg-electric hover:bg-electric/90',
       hoverColor: 'bg-electric/10',
@@ -386,7 +386,7 @@ const buttonVariants: Variants = {
               </motion.div>
               
               {/* Notification Dot */}
-              {!isOpen && (
+              {/* {!isOpen && (
                 <motion.div
                   animate={{ scale: [1, 1.5, 1] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
@@ -394,7 +394,7 @@ const buttonVariants: Variants = {
                 >
                   <span className="text-white text-xs font-bold">!</span>
                 </motion.div>
-              )}
+              )} */}
             </motion.button>
           </motion.div>
         )}
