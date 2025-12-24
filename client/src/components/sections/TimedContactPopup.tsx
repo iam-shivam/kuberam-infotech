@@ -1,7 +1,7 @@
 // src/components/shared/TimedContactPopup.tsx
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, Clock, Sparkles, Send, CheckCircle } from 'lucide-react';
+import { X, Mail, Send, CheckCircle } from 'lucide-react';
 
 const TimedContactPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,6 +17,9 @@ const TimedContactPopup = () => {
 
   // Show popup after 5-15 seconds (random delay)
   useEffect(() => {
+    if (timeRemaining === 0) {
+    console.log('Timer finished');
+  }
     if (hasShown || typeof window === 'undefined') return;
 
     const delay = Math.floor(Math.random() * (15000 - 5000 + 1)) + 5000; // 5-15 seconds
@@ -43,13 +46,13 @@ const TimedContactPopup = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [isOpen]);
+  }, [isOpen, timeRemaining]);
 
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-  };
+  // const formatTime = (seconds: number) => {
+  //   const mins = Math.floor(seconds / 60);
+  //   const secs = seconds % 60;
+  //   return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  // };
 
   const handleClose = () => {
     setIsOpen(false);
