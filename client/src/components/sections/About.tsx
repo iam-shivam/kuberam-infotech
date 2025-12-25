@@ -616,8 +616,7 @@ const SmoothInfiniteCarousel = () => {
   return (
     <div 
       className="relative py-8"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
+      
     >
       {/* Simple Title */}
       <h3 className="text-3xl font-bold text-white mb-8 text-center">
@@ -627,6 +626,8 @@ const SmoothInfiniteCarousel = () => {
       {/* Carousel Container */}
       <div 
         ref={containerRef}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
         className="relative overflow-hidden"
       >
         {/* Scrolling Content */}
