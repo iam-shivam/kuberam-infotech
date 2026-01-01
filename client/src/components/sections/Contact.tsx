@@ -29,7 +29,7 @@ const Contact = () => {
       await submitContactForm(formData);
       setIsSubmitted(true);
       setFormData({ name: '', email: '', company: '', message: '' });
-      
+
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);
@@ -70,7 +70,7 @@ const Contact = () => {
             <div className="space-y-8">
               <div className="glass-card p-8 rounded-3xl">
                 <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gold to-cyan flex items-center justify-center flex-shrink-0">
@@ -81,7 +81,7 @@ const Contact = () => {
                       <p className="text-gray-400">contact@kuberaminfotech.com</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan to-electric flex items-center justify-center flex-shrink-0">
                       <Phone className="text-navy-900" size={20} />
@@ -91,7 +91,7 @@ const Contact = () => {
                       <p className="text-gray-400">+91 73594 14155</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-electric to-cyan flex items-center justify-center flex-shrink-0">
                       <MapPin className="text-navy-900" size={20} />
@@ -101,6 +101,19 @@ const Contact = () => {
                       <p className="text-gray-400">32, Upvan Society Rd, Idar, Gujarat 383430</p>
                     </div>
                   </div>
+                  {/* Map */}
+                  <div className="w-full h-64 rounded-2xl overflow-hidden shadow-lg mb-8">
+                    <iframe
+                      title="Kuberam Infotech Location"
+                      className="w-full h-full"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.888219053345!2d73.0025926!3d23.8268112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395da304a730654d%3A0x915035f005007dc!2sKUBERAM%20INFOTECH!5e0!3m2!1sen!2sin!4v1703928000000!5m2!1sen!2sin"
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+
+
                 </div>
               </div>
 
@@ -149,7 +162,7 @@ const Contact = () => {
                         placeholder="John Doe"
                       />
                     </div>
-                    
+
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-2">
                         Email Address *
@@ -165,7 +178,7 @@ const Contact = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
                       Company
@@ -179,7 +192,7 @@ const Contact = () => {
                       placeholder="Your Company (Optional)"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
                       Message *
@@ -194,7 +207,7 @@ const Contact = () => {
                       placeholder="Tell us about your project..."
                     />
                   </div>
-                  
+
                   <motion.button
                     type="submit"
                     disabled={isSubmitting}

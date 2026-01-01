@@ -40,7 +40,7 @@ const Hero = () => {
               <span className="text-white">Bring Your Ideas.</span>
               {/* <tr> &nbsp; </tr> */}
               <span className="bg-gradient-to-r from-gold via-cyan to-electric bg-clip-text text-transparent">
-                We Engineer Them to Reality
+                We Engineer Them To Reality
               </span>
               <br />
               {/* <span className="text-white">Digital Futures</span> */}
