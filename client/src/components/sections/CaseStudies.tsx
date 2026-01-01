@@ -35,7 +35,7 @@ const caseStudies = [
     industry: 'Retail & E-commerce',
     duration: '3 Months',
     teamSize: '5 Engineers',
-    budget: '$150K',
+    // budget: '$150K',
     icon: Building2,
     gradient: 'from-gold to-cyan',
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop',
@@ -62,7 +62,7 @@ const caseStudies = [
     industry: 'Healthcare',
     duration: '6 Months',
     teamSize: '8 Engineers',
-    budget: '$250K',
+    // budget: '$250K',
     icon: HeartPulse,
     gradient: 'from-cyan to-electric',
     image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&auto=format&fit=crop',
@@ -89,7 +89,7 @@ const caseStudies = [
     industry: 'Logistics',
     duration: '4 Months',
     teamSize: '6 Engineers',
-    budget: '$180K',
+    // budget: '$180K',
     icon: Truck,
     gradient: 'from-electric to-cyan',
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop',
@@ -116,7 +116,7 @@ const caseStudies = [
     industry: 'FinTech',
     duration: '8 Months',
     teamSize: '10 Engineers',
-    budget: '$350K',
+    // budget: '$350K',
     icon: CreditCard,
     gradient: 'from-gold to-electric',
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop',
@@ -143,7 +143,7 @@ const caseStudies = [
     industry: 'Education',
     duration: '5 Months',
     teamSize: '7 Engineers',
-    budget: '$200K',
+    // budget: '$200K',
     icon: GraduationCap,
     gradient: 'from-cyan to-electric',
     image: 'Education LMS Platformhttps://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1170&auto=format',
@@ -170,7 +170,7 @@ const caseStudies = [
     industry: 'Manufacturing',
     duration: '6 Months',
     teamSize: '9 Engineers',
-    budget: '$280K',
+    // budget: '$280K',
     icon: Factory,
     gradient: 'from-gold to-cyan',
     image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&auto=format&fit=crop',
@@ -417,7 +417,7 @@ const CaseStudies = () => {
                           <span>View Case Study</span>
                           <ExternalLink size={14} />
                         </span>
-                        <span className="text-gold text-sm font-bold">{study.budget}</span>
+                        {/* <span className="text-gold text-sm font-bold">{study.budget}</span> */}
                       </div>
                     </div>
                   </div>
@@ -552,7 +552,7 @@ const CaseStudies = () => {
                       </div>
                       <div className="glass-card p-4 rounded-xl">
                         <div className="text-sm text-gray-400 mb-1">Budget</div>
-                        <div className="text-lg font-bold text-white">{selectedCase.budget}</div>
+                        {/* <div className="text-lg font-bold text-white">{selectedCase.budget}</div> */}
                       </div>
                     </div>
 

@@ -277,7 +277,7 @@ const Services = () => {
         </motion.div>
 
         {/* Animated Stats */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -301,9 +301,9 @@ const Services = () => {
                 {stat.value}
               </div>
               <div className="text-gray-400 text-sm">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
+            </motion.div> */}
+          {/* ))} */}
+        {/* </motion.div> */}
       </div>
     </section>
   );

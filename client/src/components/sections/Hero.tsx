@@ -31,24 +31,25 @@ const Hero = () => {
               <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-navy-800/70 border border-cyan/20 max-w-[90%] mx-auto sm:mx-0">
                 <Sparkles className="text-cyan flex-shrink-0 w-3 h-3" />
                 <span className="text-xs sm:text-sm font-medium text-cyan truncate">
-                  Innovating Digital Solutions
+                  AI-Driven Innovation for Modern Systems
                 </span>
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-              <span className="text-white">Building </span>
+            <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6">
+              <span className="text-white">Bring Your Ideas.</span>
+              {/* <tr> &nbsp; </tr> */}
               <span className="bg-gradient-to-r from-gold via-cyan to-electric bg-clip-text text-transparent">
-                Scalable
+                We Engineer Them to Reality
               </span>
               <br />
-              <span className="text-white">Digital Futures</span>
+              {/* <span className="text-white">Digital Futures</span> */}
             </h1>
 
             <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl">
-              We design and develop powerful digital solutions that scale with your business.
+            Software, AI-powered solutions, and scalable systems built with precision.
               <span className="bg-gradient-to-r from-gold via-cyan to-electric bg-clip-text text-transparent">
-                From modern applications to smart automation, we help ideas grow into impact.</span>
+                 We design and develop powerful digital solutions that scale with your business.</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">

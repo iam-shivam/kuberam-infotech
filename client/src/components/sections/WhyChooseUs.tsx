@@ -5,9 +5,9 @@ import {
   Zap,
   Code,
   TrendingUp,
-  Users,
-  Clock,
-  Award,
+  // Users,
+  // Clock,
+  // Award,
   CheckCircle,
   // ArrowRight,
   Star
@@ -59,32 +59,32 @@ const WhyChooseUs = () => {
     },
   ];
 
-  const benefits = [
-    {
-      icon: Users,
-      title: 'Expert Team',
-      description: 'Senior engineers with 8+ years of experience',
-      count: '40+'
-    },
-    {
-      icon: Clock,
-      title: 'Fast Delivery',
-      description: 'Agile methodology with sprints',
-      count: '30%'
-    },
-    {
-      icon: Award,
-      title: 'Award Winning',
-      description: 'Recognized by industry leaders',
-      count: '15+'
-    },
-    {
-      icon: Star,
-      title: 'Client Satisfaction',
-      description: '5-star reviews from clients',
-      count: '98%'
-    },
-  ];
+  // const benefits = [
+  //   {
+  //     icon: Users,
+  //     title: 'Expert Team',
+  //     description: 'Senior engineers with 8+ years of experience',
+  //     count: '40+'
+  //   },
+  //   {
+  //     icon: Clock,
+  //     title: 'Fast Delivery',
+  //     description: 'Agile methodology with sprints',
+  //     count: '30%'
+  //   },
+  //   {
+  //     icon: Award,
+  //     title: 'Award Winning',
+  //     description: 'Recognized by industry leaders',
+  //     count: '15+'
+  //   },
+  //   {
+  //     icon: Star,
+  //     title: 'Client Satisfaction',
+  //     description: '5-star reviews from clients',
+  //     count: '98%'
+  //   },
+  // ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -262,7 +262,7 @@ const WhyChooseUs = () => {
           viewport={{ once: true }}
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
         >
-          {benefits.map((benefit, idx) => (
+          {/* {benefits.map((benefit, idx) => (
             <motion.div
               key={benefit.title}
               initial={{ y: 30, opacity: 0 }}
@@ -272,7 +272,7 @@ const WhyChooseUs = () => {
               className="glass-card p-6 rounded-2xl text-center relative overflow-hidden group"
             >
               {/* Animated Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan/5 to-electric/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* <div className="absolute inset-0 bg-gradient-to-br from-cyan/5 to-electric/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               <motion.div
                 animate={{ rotate: [0, 360] }}
@@ -280,13 +280,13 @@ const WhyChooseUs = () => {
                 className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-br from-gold to-cyan flex items-center justify-center"
               >
                 <benefit.icon className="text-navy-900" size={24} />
-              </motion.div>
+              </motion.div> */}
 
-              <div className="text-3xl font-bold text-white mb-2">{benefit.count}</div>
+              {/* <div className="text-3xl font-bold text-white mb-2">{benefit.count}</div>
               <h4 className="text-lg font-semibold text-white mb-2">{benefit.title}</h4>
-              <p className="text-gray-400 text-sm">{benefit.description}</p>
-            </motion.div>
-          ))}
+              <p className="text-gray-400 text-sm">{benefit.description}</p> */}
+            {/* </motion.div> */}
+          {/* ))} */}
         </motion.div>
 
         {/* CTA Section */}
