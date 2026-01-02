@@ -321,3 +321,8 @@ html {
   max-height: 90vh;
   overflow-y: auto;
 }
+
+/* .glass-card {
+  backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.9);
+} */
