@@ -23,29 +23,45 @@ export default function TechStack() {
       className="py-24 px-4 sm:px-6 lg:px-8 bg-navy-900"
     >
       <div className="max-w-7xl mx-auto text-center">
-
+    <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-20"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-white">Why Choose </span>
+                <span className="bg-gradient-to-r from-gold to-cyan bg-clip-text text-transparent">
+                  Kuberam
+                </span>
+                ?
+              </h2>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                See how our AI-first approach delivers superior results compared to
+                traditional agencies and freelancers.
+              </p>
+            </motion.div>
         {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <p className="text-sm uppercase tracking-widest text-cyan mb-3">
-            <span className="bg-gradient-to-r from-gold to-cyan bg-clip-text text-transparent">
-            Stay Ahead of the Curve with Latest
-            </span>
-          </p>
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  className="text-center mb-16"
+>
+  <p className="text-sm uppercase tracking-widest mb-3">
+    <span className="bg-gradient-to-r from-gold to-cyan bg-clip-text text-transparent">
+      Stay Ahead of the Curve with Latest
+    </span>
+  </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-gold to-cyan bg-clip-text text-transparent">
-            <span className="text-white">Technologies that Drive Our </span>
-            </span>
-            <span className="bg-gradient-to-r from-gold to-cyan bg-clip-text text-transparent">
-              Innovation
-            </span>
-          </h2>
-        </motion.div>
+  <h2 className="text-4xl md:text-5xl font-bold">
+    <span className="text-white">Technologies that Drive Our </span>
+    <span className="bg-gradient-to-r from-gold to-cyan bg-clip-text text-transparent">
+      Innovation
+    </span>
+  </h2>
+</motion.div>
+
 
         {/* Category Pills */}
         <div className="flex flex-wrap justify-center gap-4 mb-14">
