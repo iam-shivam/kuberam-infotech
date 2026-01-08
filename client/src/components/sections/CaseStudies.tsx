@@ -1,11 +1,11 @@
 // src/components/sections/CaseStudies.tsx
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  X, 
-  ChevronLeft, 
-  ChevronRight, 
-  ExternalLink, 
+import {
+  X,
+  ChevronLeft,
+  ChevronRight,
+  // ExternalLink,
   TrendingUp,
   Clock,
   Users,
@@ -13,17 +13,20 @@ import {
   BarChart,
   Shield,
   Zap,
-  Code,
-//   Cloud,
+  // Code,
+  //   Cloud,
   Cpu,
   Building2,
   HeartPulse,
   Truck,
-  GraduationCap,
+  // GraduationCap,
   CreditCard,
   Factory,
   Search,
-  Filter
+  Filter,
+  UtensilsCrossed,
+  ShoppingCart,
+  TrendingDown
 } from 'lucide-react';
 
 // Case Study Data
@@ -33,8 +36,8 @@ const caseStudies = [
     title: 'E-commerce Platform Migration',
     client: 'FashionForward Retail',
     industry: 'Retail & E-commerce',
-    duration: '3 Months',
-    teamSize: '5 Engineers',
+    // duration: '3 Months',
+    // teamSize: '5 Engineers',
     // budget: '$150K',
     icon: Building2,
     gradient: 'from-gold to-cyan',
@@ -47,7 +50,7 @@ const caseStudies = [
       '99.99% uptime with auto-scaling',
       '300% faster checkout process'
     ],
-    technologies: ['React', 'Next.js', 'Node.js', 'MongoDB', 'Redis', 'AWS'],
+    technologies: ['React', 'Angular' ,'TypeScript', 'Next.js', 'Nest.js' ,'Python' ,'Node.js', 'MongoDB', 'Redis', 'AWS'],
     metrics: [
       { label: 'Revenue Increase', value: '45%', icon: DollarSign },
       { label: 'User Growth', value: '120%', icon: Users },
@@ -60,8 +63,8 @@ const caseStudies = [
     title: 'Healthcare Telemedicine Platform',
     client: 'MediCare Plus',
     industry: 'Healthcare',
-    duration: '6 Months',
-    teamSize: '8 Engineers',
+    // duration: '6 Months',
+    // teamSize: '8 Engineers',
     // budget: '$250K',
     icon: HeartPulse,
     gradient: 'from-cyan to-electric',
@@ -74,7 +77,7 @@ const caseStudies = [
       '40% reduction in hospital visits',
       'Full HIPAA compliance achieved'
     ],
-    technologies: ['React', 'Node.js', 'WebRTC', 'PostgreSQL', 'AWS', 'Docker'],
+    technologies: ['React','Python', 'Angular', 'Node.js', 'WebRTC', 'PostgreSQL', 'AWS', 'Docker'],
     metrics: [
       { label: 'Patients Served', value: '50K+', icon: Users },
       { label: 'Satisfaction', value: '98%', icon: TrendingUp },
@@ -87,21 +90,21 @@ const caseStudies = [
     title: 'Logistics Management System',
     client: 'SwiftLogistics Inc.',
     industry: 'Logistics',
-    duration: '4 Months',
-    teamSize: '6 Engineers',
+    // duration: '4 Months',
+    // teamSize: '6 Engineers',
     // budget: '$180K',
     icon: Truck,
     gradient: 'from-electric to-cyan',
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop',
     challenge: 'Manual tracking and inefficient route planning causing 30% fuel waste and delivery delays.',
-    solution: 'IoT-enabled fleet management system with real-time tracking, route optimization, and predictive analytics.',
+    solution: 'AI-enabled fleet management system with real-time tracking, route optimization, and predictive analytics.',
     results: [
       '30% reduction in fuel consumption',
       '25% faster delivery times',
       'Real-time tracking for 500+ vehicles',
       'Predictive maintenance alerts'
     ],
-    technologies: ['React', 'Node.js', 'IoT', 'MongoDB', 'Google Maps API', 'AWS'],
+    technologies: ['React', 'Python','Node.js', 'AI/ML', 'PostgreSQL' ,'MongoDB', 'Google Maps API', 'AWS'],
     metrics: [
       { label: 'Fuel Savings', value: '30%', icon: DollarSign },
       { label: 'Delivery Speed', value: '25%', icon: Clock },
@@ -114,8 +117,8 @@ const caseStudies = [
     title: 'FinTech Banking Platform',
     client: 'NextGen Bank',
     industry: 'FinTech',
-    duration: '8 Months',
-    teamSize: '10 Engineers',
+    // duration: '8 Months',
+    // teamSize: '10 Engineers',
     // budget: '$350K',
     icon: CreditCard,
     gradient: 'from-gold to-electric',
@@ -128,7 +131,7 @@ const caseStudies = [
       '70% reduction in transaction time',
       '24/7 real-time fraud detection'
     ],
-    technologies: ['React', 'Node.js', 'Microservices', 'PostgreSQL', 'Blockchain', 'Kubernetes'],
+    technologies: ['React','Angular' ,'Node.js', 'Microservices', 'PostgreSQL', 'Blockchain', 'Kubernetes'],
     metrics: [
       { label: 'Active Users', value: '500K+', icon: Users },
       { label: 'Security Score', value: '99.99%', icon: Shield },
@@ -138,51 +141,66 @@ const caseStudies = [
   },
   {
     id: 5,
-    title: 'Education LMS Platform',
-    client: 'EduTech Solutions',
-    industry: 'Education',
-    duration: '5 Months',
-    teamSize: '7 Engineers',
-    // budget: '$200K',
-    icon: GraduationCap,
-    gradient: 'from-cyan to-electric',
-    image: 'Education LMS Platformhttps://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1170&auto=format',
-    challenge: 'Fragmented learning tools causing poor student engagement and administrative overhead.',
-    solution: 'Unified Learning Management System with AI-powered recommendations and interactive features.',
+    title: 'Food & Beverages Platform',
+    client: 'FreshBite Foods',
+    industry: 'Food & Beverages',
+    // duration: '4 Months',
+    // teamSize: '6 Engineers',
+    icon: UtensilsCrossed,
+    gradient: 'from-orange-400 to-red-500',
+    image: 'https://images.unsplash.com/photo-1543353071-873f17a7a088?q=80&w=1170&auto=format&fit=crop',
+
+    challenge:
+      'Manual order management, delayed inventory updates, and lack of real-time insights caused operational inefficiencies and revenue loss.',
+
+    solution:
+      'Built a centralized digital platform for order management, inventory tracking, and analytics with real-time dashboards and automation.',
+
     results: [
-      '200k+ students enrolled',
-      '45% improvement in test scores',
-      '90% teacher satisfaction',
-      '24/7 learning platform'
+      '60% faster order processing',
+      '35% reduction in inventory waste',
+      '40% increase in online orders',
+      'Real-time stock & sales insights'
     ],
-    technologies: ['React', 'Node.js', 'AI/ML', 'MongoDB', 'AWS', 'WebRTC'],
+
+    technologies: [
+      'React',
+      'Angular',
+      'TypeScript',
+      'Node.js',
+      'PostgreSQL',
+      'Redis',
+      'AWS',
+      'Stripe'
+    ],
+
     metrics: [
-      { label: 'Students Enrolled', value: '200K+', icon: Users },
-      { label: 'Learning Improvement', value: '45%', icon: TrendingUp },
-      { label: 'Teacher Satisfaction', value: '90%', icon: BarChart },
-      { label: 'Platform Uptime', value: '99.9%', icon: Shield }
+      { label: 'Orders Processed', value: '500K+', icon: ShoppingCart },
+      { label: 'Waste Reduction', value: '35%', icon: TrendingDown },
+      { label: 'Customer Growth', value: '40%', icon: Users },
+      { label: 'System Uptime', value: '99.9%', icon: Shield }
     ]
   },
   {
     id: 6,
-    title: 'Manufacturing IoT System',
+    title: 'Manufacturing System',
     client: 'AutoTech Manufacturing',
     industry: 'Manufacturing',
-    duration: '6 Months',
-    teamSize: '9 Engineers',
+    // duration: '6 Months',
+    // teamSize: '9 Engineers',
     // budget: '$280K',
     icon: Factory,
     gradient: 'from-gold to-cyan',
     image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&auto=format&fit=crop',
     challenge: 'Manual production monitoring causing 20% defect rate and 30% machine downtime.',
-    solution: 'IoT-powered smart factory system with real-time monitoring, predictive maintenance, and quality control.',
+    solution: 'AI-powered smart factory system with real-time monitoring, predictive maintenance, and quality control.',
     results: [
       '40% increase in production efficiency',
       '85% reduction in defects',
       'Predictive maintenance alerts',
       'Real-time quality monitoring'
     ],
-    technologies: ['React', 'Node.js', 'IoT', 'Python', 'AWS IoT', 'TensorFlow'],
+    technologies: ['React', 'Python' ,'Angular', 'TypeScript', 'Next.js' ,'Node.js', 'AWS', 'TensorFlow'],
     metrics: [
       { label: 'Production Efficiency', value: '40%', icon: TrendingUp },
       { label: 'Defect Reduction', value: '85%', icon: BarChart },
@@ -198,7 +216,7 @@ const industries = [
   'Healthcare',
   'Logistics',
   'FinTech',
-  'Education',
+  'Food & Beverages',
   'Manufacturing'
 ];
 
@@ -210,7 +228,7 @@ const CaseStudies = () => {
 
   const filteredStudies = caseStudies.filter(study => {
     const matchesIndustry = filter === 'All Industries' || study.industry === filter;
-    const matchesSearch = searchQuery === '' || 
+    const matchesSearch = searchQuery === '' ||
       study.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       study.client.toLowerCase().includes(searchQuery.toLowerCase()) ||
       study.industry.toLowerCase().includes(searchQuery.toLowerCase());
@@ -274,14 +292,14 @@ const CaseStudies = () => {
               <TrendingUp className="text-cyan" size={16} />
               <span className="text-cyan text-sm font-medium">Success Stories</span>
             </div>
-            
+
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               <span className="text-white">Real-World </span>
               <span className="bg-gradient-to-r from-gold to-cyan bg-clip-text text-transparent">
                 Case Studies
               </span>
             </h2>
-            
+
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Discover how we've helped businesses transform and achieve remarkable results through innovative technology solutions.
             </p>
@@ -318,11 +336,10 @@ const CaseStudies = () => {
                     <button
                       key={industry}
                       onClick={() => setFilter(industry)}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                        filter === industry
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${filter === industry
                           ? 'bg-gradient-to-r from-gold to-cyan text-navy-900'
                           : 'bg-navy-800/50 text-gray-400 hover:text-white hover:bg-navy-800'
-                      }`}
+                        }`}
                     >
                       {industry}
                     </button>
@@ -348,7 +365,7 @@ const CaseStudies = () => {
                 <div className="relative overflow-hidden rounded-3xl h-full">
                   {/* Gradient Overlay */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${study.gradient} opacity-10 group-hover:opacity-20 transition-opacity`}></div>
-                  
+
                   {/* Card */}
                   <div className="glass-card h-full overflow-hidden">
                     {/* Image */}
@@ -359,7 +376,7 @@ const CaseStudies = () => {
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent"></div>
-                      
+
                       {/* Industry Badge */}
                       <div className="absolute top-4 left-4">
                         <div className="flex items-center space-x-2 px-3 py-1.5 rounded-full bg-navy-900/80 backdrop-blur-sm">
@@ -386,7 +403,7 @@ const CaseStudies = () => {
                       </p>
 
                       {/* Metrics */}
-                      <div className="grid grid-cols-2 gap-3 mb-4">
+                      {/* <div className="grid grid-cols-2 gap-3 mb-4">
                         <div className="flex items-center space-x-2">
                           <Clock className="text-cyan" size={14} />
                           <span className="text-gray-400 text-sm">{study.duration}</span>
@@ -395,7 +412,7 @@ const CaseStudies = () => {
                           <Users className="text-gold" size={14} />
                           <span className="text-gray-400 text-sm">{study.teamSize}</span>
                         </div>
-                      </div>
+                      </div> */}
 
                       {/* Technologies */}
                       <div className="flex flex-wrap gap-2 mb-4">
@@ -412,13 +429,13 @@ const CaseStudies = () => {
                       </div>
 
                       {/* View Button */}
-                      <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                      {/* <div className="flex items-center justify-between pt-4 border-t border-white/10">
                         <span className="text-cyan text-sm font-medium flex items-center space-x-2 group-hover:space-x-3 transition-all">
                           <span>View Case Study</span>
                           <ExternalLink size={14} />
-                        </span>
+                        </span> */}
                         {/* <span className="text-gold text-sm font-bold">{study.budget}</span> */}
-                      </div>
+                      {/* </div> */}
                     </div>
                   </div>
                 </div>
@@ -444,7 +461,7 @@ const CaseStudies = () => {
           )}
 
           {/* Stats */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -467,7 +484,7 @@ const CaseStudies = () => {
                 <div className="text-gray-400 text-sm">{stat.label}</div>
               </motion.div>
             ))}
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
 
@@ -500,7 +517,7 @@ const CaseStudies = () => {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/80 to-transparent"></div>
-                  
+
                   <div className="absolute top-4 right-4 flex items-center space-x-2">
                     <button
                       onClick={openPrev}
@@ -542,14 +559,14 @@ const CaseStudies = () => {
                         <div className="text-sm text-gray-400 mb-1">Client</div>
                         <div className="text-lg font-bold text-white">{selectedCase.client}</div>
                       </div>
-                      <div className="glass-card p-4 rounded-xl">
+                      {/* <div className="glass-card p-4 rounded-xl">
                         <div className="text-sm text-gray-400 mb-1">Duration</div>
                         <div className="text-lg font-bold text-white">{selectedCase.duration}</div>
                       </div>
                       <div className="glass-card p-4 rounded-xl">
                         <div className="text-sm text-gray-400 mb-1">Team Size</div>
                         <div className="text-lg font-bold text-white">{selectedCase.teamSize}</div>
-                      </div>
+                      </div> */}
                       <div className="glass-card p-4 rounded-xl">
                         <div className="text-sm text-gray-400 mb-1">Budget</div>
                         {/* <div className="text-lg font-bold text-white">{selectedCase.budget}</div> */}
@@ -567,7 +584,7 @@ const CaseStudies = () => {
                         </div>
                         <p className="text-gray-300 leading-relaxed">{selectedCase.challenge}</p>
                       </div>
-                      
+
                       <div>
                         <div className="flex items-center space-x-2 mb-4">
                           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan to-electric flex items-center justify-center">
@@ -587,7 +604,7 @@ const CaseStudies = () => {
                         </div>
                         <h3 className="text-xl font-bold text-white">Key Results</h3>
                       </div>
-                      
+
                       <div className="grid md:grid-cols-2 gap-4">
                         {selectedCase.results.map((result, idx) => (
                           <motion.div

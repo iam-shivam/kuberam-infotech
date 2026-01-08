@@ -1,7 +1,7 @@
 // src/components/sections/Contact.tsx
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
+import { Send, Mail, Phone, CheckCircle } from 'lucide-react';
 import { submitContactForm } from '../../utils/api';
 
 const Contact = () => {
@@ -78,7 +78,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-1">Email</h4>
-                      <p className="text-gray-400">contact@kuberaminfotech.com</p>
+                      <p className="text-gray-400">kuberaminfotech@gmail.com</p>
                     </div>
                   </div>
 
@@ -88,11 +88,11 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-1">Phone</h4>
-                      <p className="text-gray-400">+91 73594 14155</p>
+                      <p className="text-gray-400">+91 92747 74155</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
+                  {/* <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-electric to-cyan flex items-center justify-center flex-shrink-0">
                       <MapPin className="text-navy-900" size={20} />
                     </div>
@@ -100,9 +100,9 @@ const Contact = () => {
                       <h4 className="text-lg font-semibold text-white mb-1">Location</h4>
                       <p className="text-gray-400">32, Upvan Society Rd, Idar, Gujarat 383430</p>
                     </div>
-                  </div>
+                  </div> */}
                   {/* Map */}
-                  <div className="w-full h-64 rounded-2xl overflow-hidden shadow-lg mb-8">
+                  {/* <div className="w-full h-64 rounded-2xl overflow-hidden shadow-lg mb-8">
                     <iframe
                       title="Kuberam Infotech Location"
                       className="w-full h-full"
@@ -111,7 +111,7 @@ const Contact = () => {
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
-                  </div>
+                  </div> */}
 
 
                 </div>

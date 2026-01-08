@@ -6,26 +6,6 @@ const Services = () => {
   const services = [
     {
       id: 1,
-      icon: Code,
-      title: 'Web Development',
-      description: 'Modern, responsive web applications built with React, Next.js, and TypeScript.',
-      features: ['SPA/PWA Development', 'Responsive Design', 'Performance Optimization'],
-      gradient: 'from-cyan to-electric',
-      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop',
-      // Alternative AI image: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&auto=format&fit=crop
-    },
-    {
-      id: 2,
-      icon: Smartphone,
-      title: 'Mobile Development',
-      description: 'Cross-platform mobile apps with React Native and Expo.',
-      features: ['Cross-platform', 'Native Performance', 'Push Notifications'],
-      gradient: 'from-cyan to-electric',
-      image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop',
-      // Alternative AI image: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&auto=format&fit=crop
-    },
-    {
-      id: 3,
       icon: Palette,
       title: 'UI/UX Design',
       description: 'User-friendly interfaces and experiences for web and mobile apps.',
@@ -35,27 +15,7 @@ const Services = () => {
       // Alternative AI image: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&auto=format&fit=crop
     },
     {
-      id: 4,
-      icon: Server,
-      title: 'Backend & APIs',
-      description: 'Scalable server-side solutions with Node.js, Express, and microservices.',
-      features: ['REST/GraphQL APIs', 'Microservices', 'Real-time Systems'],
-      gradient: 'from-gold to-cyan',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop',
-      // Alternative: https://images.unsplash.com/photo-1629654291660-3c98113a0438?w=800&auto=format&fit=crop
-    },
-    {
-      id: 5,
-      icon: Cloud,
-      title: 'Cloud & DevOps',
-      description: 'Cloud infrastructure, CI/CD pipelines, and container orchestration.',
-      features: ['AWS/Azure/GCP', 'Docker & Kubernetes', 'CI/CD Automation'],
-      gradient: 'from-electric to-cyan',
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop',
-      // Alternative: https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&auto=format&fit=crop
-    },
-    {
-      id: 6,
+      id: 2,
       icon: Cpu,
       title: 'AI, Automation & Data Labeling',
       description: 'Intelligent solutions powered by machine learning, automation, and high-quality labeled data.',
@@ -68,7 +28,48 @@ const Services = () => {
       ],
       gradient: 'from-gold to-electric',
       image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop',
-    }
+    },
+    {
+      id: 3,
+      icon: Smartphone,
+      title: 'Mobile Development',
+      description: 'Cross-platform mobile apps with React Native and Expo.',
+      features: ['Cross-platform', 'Native Performance', 'Push Notifications'],
+      gradient: 'from-cyan to-electric',
+      image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop',
+      // Alternative AI image: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&auto=format&fit=crop
+    },
+    {
+      id: 4,
+      icon: Code,
+      title: 'Web Development',
+      description: 'Modern, responsive web applications built with React, Next.js, and TypeScript.',
+      features: ['SPA/PWA Development', 'Responsive Design', 'Performance Optimization'],
+      gradient: 'from-cyan to-electric',
+      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop',
+      // Alternative AI image: https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=800&auto=format&fit=crop
+    },
+    {
+      id: 5,
+      icon: Server,
+      title: 'Backend & APIs',
+      description: 'Scalable server-side solutions with Node.js, Express, and microservices.',
+      features: ['REST/GraphQL APIs', 'Microservices', 'Real-time Systems'],
+      gradient: 'from-gold to-cyan',
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop',
+      // Alternative: https://images.unsplash.com/photo-1629654291660-3c98113a0438?w=800&auto=format&fit=crop
+    },
+    {
+      id: 6,
+      icon: Cloud,
+      title: 'Cloud & DevOps',
+      description: 'Cloud infrastructure, CI/CD pipelines, and container orchestration.',
+      features: ['AWS/Azure/GCP', 'Docker & Kubernetes', 'CI/CD Automation'],
+      gradient: 'from-electric to-cyan',
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop',
+      // Alternative: https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&auto=format&fit=crop
+    },
+    
 
   ];
 

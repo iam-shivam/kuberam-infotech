@@ -544,7 +544,7 @@ export default function WhyChooseKuberam() {
         </motion.div>
 
         {/* ---------- CTA ---------- */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -566,7 +566,7 @@ export default function WhyChooseKuberam() {
               Schedule Free Consultation
             </button>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* ---------- FEATURE CARDS ---------- */}
         <div className="grid md:grid-cols-3 gap-8">

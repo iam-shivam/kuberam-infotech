@@ -6,7 +6,7 @@ import {
   Mail, 
   Phone, 
   X, 
-  MessageSquare,
+  // MessageSquare,
   ChevronUp,
 } from 'lucide-react';
 
@@ -33,10 +33,10 @@ const FloatingContactButtons = () => {
       id: 2,
       icon: Mail,
       label: 'Email',
-      description: 'contact@kuberaminfotech.com',
+      description: 'kuberaminfotech@gmail.com',
       color: 'bg-blue-500',
       hoverColor: 'bg-blue-500/20',
-      link: 'mailto:contact@kuberaminfotech.com',
+      link: 'mailto:kuberaminfotech@gmail.com',
     },
     {
       id: 3,
@@ -47,15 +47,15 @@ const FloatingContactButtons = () => {
       hoverColor: 'bg-cyan/20',
       link: 'tel:+919274774155',
     },
-    {
-      id: 4,
-      icon: MessageSquare,
-      label: 'Live Chat',
-      description: 'Coming Soon',
-      color: 'bg-electric',
-      hoverColor: 'bg-electric/20',
-      link: '#',
-    },
+    // {
+    //   id: 4,
+    //   icon: MessageSquare,
+    //   label: 'Live Chat',
+    //   description: 'Coming Soon',
+    //   color: 'bg-electric',
+    //   hoverColor: 'bg-electric/20',
+    //   link: '#',
+    // },
   ];
 
   // Detect device type

@@ -1,113 +1,147 @@
-import type React from "react";
 import { motion } from "framer-motion";
+import {
+  SiAmazonwebservices,
+  SiDocker,
+  SiFlutter,
+  SiKubernetes,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPython,
+  SiReact,
+  SiTensorflow,
+  SiTypescript,
+} from "react-icons/si";
+import { BrainCircuit, Code2, Layers, Sparkles } from "lucide-react";
 
+/* ---------------- ICON NORMALIZER ---------------- */
+const IconWrapper = ({ children }: { children: React.ReactNode }) => (
+  <span className="flex items-center justify-center w-6 h-6 text-cyan/80">
+    {children}
+  </span>
+);
+
+const iconClass = "w-[18px] h-[18px]";
+
+/* ---------------- COMPONENT ---------------- */
 export default function TechStack() {
-  const techStack = [
-    { name: "React JS", icon: "⚛️" },
-    { name: "Node JS", icon: "🟢" },
-    { name: "Angular", icon: "🅰️" },
-    { name: "TypeScript", icon: "TS" },
-    { name: "NestJS", icon: "🐦" },
-    { name: "MongoDB", icon: "🍃" },
-    { name: "PostgreSQL", icon: "🐘" },
-    { name: "MySQL", icon: "🗄️" },
-    { name: "GraphQL", icon: "🔺" },
-    { name: "Docker", icon: "🐳" },
-    { name: "AWS", icon: "☁️" },
-    { name: "Express", icon: "🚀" },
-  ];
-
   return (
-    <section
-      id="tech-stack"
-      className="py-24 px-4 sm:px-6 lg:px-8 bg-navy-900"
-    >
-      <div className="max-w-7xl mx-auto text-center">
-    <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-20"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                <span className="text-white">Why Choose </span>
-                <span className="bg-gradient-to-r from-gold to-cyan bg-clip-text text-transparent">
-                  Kuberam
-                </span>
-                ?
-              </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                See how our AI-first approach delivers superior results compared to
-                traditional agencies and freelancers.
-              </p>
-            </motion.div>
-        {/* Heading */}
+    <section id="tech-stack" className="py-28 bg-navy-900">
+      <div className="max-w-7xl mx-auto px-6 text-center">
+
+        {/* ---------- HEADING ---------- */}
         <motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  className="text-center mb-16"
->
-  <p className="text-sm uppercase tracking-widest mb-3">
-    <span className="bg-gradient-to-r from-gold to-cyan bg-clip-text text-transparent">
-      Stay Ahead of the Curve with Latest
-    </span>
-  </p>
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-20"
+        >
+          <p className="text-xs uppercase tracking-[0.3em] text-gold mb-4">
+            Stay Ahead of the Curve with Latest
+          </p>
 
-  <h2 className="text-4xl md:text-5xl font-bold">
-    <span className="text-white">Technologies that Drive Our </span>
-    <span className="bg-gradient-to-r from-gold to-cyan bg-clip-text text-transparent">
-      Innovation
-    </span>
-  </h2>
-</motion.div>
-
-
-        {/* Category Pills */}
-        <div className="flex flex-wrap justify-center gap-4 mb-14">
-          {[
-            "Web App Development",
-            "Mobile App Development",
-            "Analytics",
-            "Data & Cloud",
-          ].map((item) => (
-            <span
-              key={item}
-              className="px-6 py-2 rounded-full
-              bg-gradient-to-r from-gold/10 to-cyan/10
-              border border-cyan/20
-              text-cyan text-sm font-medium
-              hover:from-gold/20 hover:to-cyan/20
-              transition"
-            >
-              {item}
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+            <span className="text-white">Technologies that Drive Our </span>
+            <span className="bg-gradient-to-r from-gold to-cyan bg-clip-text text-transparent">
+              Innovation
             </span>
-          ))}
-        </div>
+          </h2>
+        </motion.div>
 
-        {/* Tech Cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-          {techStack.map((tech: { name: string; icon: React.ReactNode }) => (
-            <div
-              key={tech.name}
-              className="group flex flex-col items-center justify-center p-6 rounded-xl
-              bg-navy-800/60 backdrop-blur
-              border border-white/10
-              hover:border-cyan/40
-              hover:shadow-lg hover:shadow-cyan/20
-              transition-all duration-300"
-            >
-              <div className="text-3xl mb-3 group-hover:scale-110 transition">
-                {tech.icon}
-              </div>
-              <span className="text-white font-medium text-sm">
-                {tech.name}
+        {/* ---------- CATEGORY PILLS ---------- */}
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {["Web App Development", "Mobile App Development", "Analytics", "Data & Cloud"].map(
+            (item) => (
+              <span
+                key={item}
+                className="
+                  px-6 py-2 rounded-full text-sm font-medium
+                  bg-white/5 border border-white/10
+                  text-cyan
+                  hover:bg-white/10 hover:border-cyan/40
+                  transition-all
+                "
+              >
+                {item}
               </span>
-            </div>
-          ))}
+            )
+          )}
         </div>
 
+        {/* ---------- TECH GRID ---------- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+
+          {/* FRONTEND */}
+          <TechColumn title="Frontend" items={[
+            { name: "React", icon: SiReact },
+            { name: "Next.js", icon: SiNextdotjs },
+            { name: "TypeScript", icon: SiTypescript },
+            { name: "Tailwind CSS", icon: Code2 },
+          ]} />
+
+          {/* BACKEND */}
+          <TechColumn title="Backend" items={[
+            { name: "Node.js", icon: SiNodedotjs },
+            { name: "Python", icon: SiPython },
+            { name: "PostgreSQL", icon: SiPostgresql },
+            { name: "Go", icon: Code2 },
+          ]} />
+
+          {/* MOBILE & AI */}
+          <TechColumn title="Mobile & AI" items={[
+            { name: "Flutter", icon: SiFlutter },
+            { name: "TensorFlow", icon: SiTensorflow },
+            { name: "PyTorch", icon: BrainCircuit },
+            { name: "OpenAI API", icon: Sparkles },
+          ]} />
+
+          {/* CLOUD & DEVOPS */}
+          <TechColumn title="Cloud & DevOps" items={[
+            { name: "AWS", icon: SiAmazonwebservices },
+            { name: "Docker", icon: SiDocker },
+            { name: "Kubernetes", icon: SiKubernetes },
+            { name: "Terraform", icon: Layers },
+          ]} />
+
+        </div>
       </div>
     </section>
+  );
+}
+
+/* ---------------- COLUMN COMPONENT ---------------- */
+function TechColumn({
+  title,
+  items,
+}: {
+  title: string;
+  items: { name: string; icon: any }[];
+}) {
+  return (
+    <div className="flex flex-col items-center text-center">
+      <h4 className="text-xs font-semibold tracking-widest uppercase text-gray-300 mb-3">
+        {title}
+      </h4>
+
+      {/* Equal underline */}
+      <span className="h-[2px] w-14 bg-cyan rounded-full mb-6"></span>
+
+      <ul className="space-y-4">
+        {items.map((tech) => (
+          <li
+            key={tech.name}
+            className="flex items-center gap-3 text-gray-400 hover:text-white transition"
+          >
+            <IconWrapper>
+              <tech.icon className={iconClass} />
+            </IconWrapper>
+
+            <span className="font-medium leading-none">
+              {tech.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

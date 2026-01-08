@@ -28,21 +28,46 @@ const Header = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-navy-900/95 backdrop-blur-lg border-b border-white/10 py-4'
-          : 'bg-navy-900 py-5'
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${scrolled
+        ? 'bg-navy-900/95 backdrop-blur-lg border-b border-white/10 py-4'
+        : 'bg-navy-900 py-5'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
         <div className="flex items-center justify-between">
           {/* Logo - Left side */}
-          <motion.div
+          {/* <motion.div
             whileHover={{ scale: 1.05 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             className="flex flex-col"
           >
-            <h1 className="text-2xl font-bold text-white tracking-tight">KUBERAM</h1>
-            <p className="text-sm text-cyan font-medium tracking-wide">Infotech</p>
+            <img
+              src="/KUBERAMLOGO.png"
+              alt="Kuberam Infotech Logo"
+              className="h-14 w-auto object-contain"
+            />
+          </motion.div> */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            className="flex items-center space-x-3"
+          >
+            {/* Logo */}
+            <img
+              src="/KUBERAMLOGO.png"
+              alt="Kuberam Infotech Logo"
+              className="h-12 w-12 object-contain"
+            />
+
+            {/* Company Name */}
+            <div className="leading-tight">
+              <h1 className="text-xl font-semibold text-white tracking-tight">
+                Kuberam<span className="text-cyan"></span>
+              </h1>
+              <p className="text-sm text-gray-400 tracking-wide">
+                Infotech
+              </p>
+            </div>
           </motion.div>
 
           {/* Desktop Navigation - Centered */}
@@ -85,32 +110,55 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
+          // <motion.div
+          //   initial={{ opacity: 0, y: -20 }}
+          //   animate={{ opacity: 1, y: 0 }}
+          //   exit={{ opacity: 0, y: -20 }}
+          //   className="lg:hidden mt-6 bg-navy-800/95 backdrop-blur-lg border border-white/10 rounded-2xl p-6"
+          // >
+          //   <div className="flex flex-col space-y-4">
+          //     {navItems.map((item) => (
+          //       <a
+          //         key={item.label}
+          //         href={item.href}
+          //         className="text-gray-300 hover:text-cyan py-3 text-base font-medium transition-colors border-b border-white/5 last:border-0"
+          //         onClick={() => setIsOpen(false)}
+          //       >
+          //         {item.label}
+          //       </a>
+          //     ))}
+          //     <button
+          //       className="mt-4 px-6 py-3 bg-gradient-to-r from-gold to-cyan text-navy-900 font-semibold rounded-lg flex items-center justify-center space-x-2"
+          //       onClick={() => setIsOpen(false)}
+          //     >
+          //       <span>Get Started</span>
+          //       <ChevronRight size={16} />
+          //     </button>
+          //   </div>
+          // </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden mt-6 bg-navy-800/95 backdrop-blur-lg border border-white/10 rounded-2xl p-6"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            className="flex items-center space-x-3"
           >
-            <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="text-gray-300 hover:text-cyan py-3 text-base font-medium transition-colors border-b border-white/5 last:border-0"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
-              <button 
-                className="mt-4 px-6 py-3 bg-gradient-to-r from-gold to-cyan text-navy-900 font-semibold rounded-lg flex items-center justify-center space-x-2"
-                onClick={() => setIsOpen(false)}
-              >
-                <span>Get Started</span>
-                <ChevronRight size={16} />
-              </button>
+            {/* Logo */}
+            <img
+              src="/KUBERAMLOGO.png"
+              alt="Kuberam Infotech Logo"
+              className="h-12 w-12 object-contain"
+            />
+
+            {/* Company Name */}
+            <div className="leading-tight">
+              <h1 className="text-xl font-semibold text-white tracking-tight">
+                Kuberam<span className="text-cyan">.</span>
+              </h1>
+              <p className="text-sm text-gray-400 tracking-wide">
+                Infotech
+              </p>
             </div>
           </motion.div>
+
         )}
       </div>
     </motion.header>

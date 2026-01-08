@@ -13,7 +13,8 @@ import CaseStudies from './components/sections/CaseStudies';
 import TimedContactPopup from './components/sections/TimedContactPopup';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import TechStack from './components/tech-stack/TechStack';
+// import TechStack from './components/tech-stack/TechStack';
+import TechStack from './components/sections/TechStack';
 
 
 function App() {
