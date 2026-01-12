@@ -110,54 +110,54 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          // <motion.div
-          //   initial={{ opacity: 0, y: -20 }}
-          //   animate={{ opacity: 1, y: 0 }}
-          //   exit={{ opacity: 0, y: -20 }}
-          //   className="lg:hidden mt-6 bg-navy-800/95 backdrop-blur-lg border border-white/10 rounded-2xl p-6"
-          // >
-          //   <div className="flex flex-col space-y-4">
-          //     {navItems.map((item) => (
-          //       <a
-          //         key={item.label}
-          //         href={item.href}
-          //         className="text-gray-300 hover:text-cyan py-3 text-base font-medium transition-colors border-b border-white/5 last:border-0"
-          //         onClick={() => setIsOpen(false)}
-          //       >
-          //         {item.label}
-          //       </a>
-          //     ))}
-          //     <button
-          //       className="mt-4 px-6 py-3 bg-gradient-to-r from-gold to-cyan text-navy-900 font-semibold rounded-lg flex items-center justify-center space-x-2"
-          //       onClick={() => setIsOpen(false)}
-          //     >
-          //       <span>Get Started</span>
-          //       <ChevronRight size={16} />
-          //     </button>
-          //   </div>
-          // </motion.div>
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            className="flex items-center space-x-3"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="lg:hidden mt-6 bg-navy-800/95 backdrop-blur-lg border border-white/10 rounded-2xl p-6"
           >
-            {/* Logo */}
-            <img
-              src="/KUBERAMLOGO.png"
-              alt="Kuberam Infotech Logo"
-              className="h-12 w-12 object-contain"
-            />
-
-            {/* Company Name */}
-            <div className="leading-tight">
-              <h1 className="text-xl font-semibold text-white tracking-tight">
-                Kuberam<span className="text-cyan">.</span>
-              </h1>
-              <p className="text-sm text-gray-400 tracking-wide">
-                Infotech
-              </p>
+            <div className="flex flex-col space-y-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-gray-300 hover:text-cyan py-3 text-base font-medium transition-colors border-b border-white/5 last:border-0"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ))}
+              <button
+                className="mt-4 px-6 py-3 bg-gradient-to-r from-gold to-cyan text-navy-900 font-semibold rounded-lg flex items-center justify-center space-x-2"
+                onClick={() => setIsOpen(false)}
+              >
+                <span>Get Started</span>
+                <ChevronRight size={16} />
+              </button>
             </div>
           </motion.div>
+          // <motion.div
+          //   whileHover={{ scale: 1.05 }}
+          //   transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+          //   className="flex items-center space-x-3"
+          // >
+          //   {/* Logo */}
+          //   <img
+          //     src="/KUBERAMLOGO.png"
+          //     alt="Kuberam Infotech Logo"
+          //     className="h-12 w-12 object-contain"
+          //   />
+
+          //   {/* Company Name */}
+          //   <div className="leading-tight">
+          //     <h1 className="text-xl font-semibold text-white tracking-tight">
+          //       Kuberam<span className="text-cyan">.</span>
+          //     </h1>
+          //     <p className="text-sm text-gray-400 tracking-wide">
+          //       Infotech
+          //     </p>
+          //   </div>
+          // </motion.div>
 
         )}
       </div>

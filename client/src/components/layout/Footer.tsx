@@ -1,20 +1,21 @@
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  // Linkedin,
+  // Twitter,
+  // Instagram,
+  // Github,
+} from "lucide-react";
+import { SiGithub, SiInstagram, SiLinkedin } from "react-icons/si";
+import { SlSocialTwitter } from "react-icons/sl";
 
+/* ---------------- FOOTER ---------------- */
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[#050B16] text-gray-300">
-      
 
-      {/* GRADIENT LINES (TOP & BOTTOM) */}
+      {/* GRADIENT LINES */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-green-400/30 to-transparent" />
-
-      {/* BACKGROUND WATERMARK */}
-      {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <h1 className="text-[18rem] font-extrabold tracking-widest bg-gradient-to-r from-yellow-400/8 via-lime-400/8 to-green-400/8 bg-clip-text text-transparent">
-          KUBERAM
-        </h1>
-      </div> */}
 
       <div className="relative max-w-7xl mx-auto px-6 py-28">
 
@@ -24,8 +25,7 @@ export default function Footer() {
           {/* LEFT CTA */}
           <div>
             <h2 className="text-5xl font-bold leading-tight mb-6">
-              <span className="text-white">Let’s Build </span>
-              <br />
+              <span className="text-white">Let’s Build </span><br />
               <span className="text-gray-400">Something </span>
               <span className="bg-gradient-to-r from-yellow-400 via-lime-400 to-green-400 bg-clip-text text-transparent">
                 Amazing.
@@ -54,17 +54,55 @@ export default function Footer() {
 
             <FooterColumn
               title="Company"
-              links={["Home", "Services", "Case Studies", "Careers"]}
+              links={[
+                { label: "Home", href: "#" },
+                { label: "Services", href: "#" },
+                { label: "Case Studies", href: "#" },
+                { label: "Careers", href: "#" },
+              ]}
             />
 
             <FooterColumn
               title="Socials"
-              links={["LinkedIn", "Twitter", "Instagram", "GitHub"]}
+              // links={[
+              //   {
+              //     label: "LinkedIn",
+              //     href: "https://linkedin.com",
+              //     icon: Linkedin,
+              //   },
+              //   {
+              //     label: "Twitter",
+              //     href: "https://twitter.com",
+              //     icon: Twitter,
+              //   },
+              //   {
+              //     label: "",
+              //     href: "https://instagram.com",
+              //     icon: SiInstagram,
+              //   },
+              //   {
+              //     label: "",
+              //     href: "https://github.com",
+              //     icon: SiGithub,
+              //   },
+              // ]}
+                links={[
+    { href: "https://linkedin.com", icon: SiLinkedin },
+    { href: "https://twitter.com", icon: SlSocialTwitter },
+    { href: "https://instagram.com", icon: SiInstagram },
+    { href: "https://github.com", icon: SiGithub },
+  ]}
             />
 
             <FooterColumn
               title="Get in Touch"
-              links={["Contact Us", "kuberaminfotech@gmail.com"]}
+              links={[
+                { label: "Contact Us", href: "#" },
+                {
+                  label: "kuberaminfotech@gmail.com",
+                  href: "mailto:kuberaminfotech@gmail.com",
+                },
+              ]}
             />
 
           </div>
@@ -82,40 +120,77 @@ export default function Footer() {
             <span>Kuberam Infotech</span>
           </div>
 
-          <p>
-            © 2026 Kuberam Infotech. Crafted with ❤️ in React.
-          </p>
+          <p>© 2026 Kuberam Infotech. Crafted with ❤️ in React.</p>
         </div>
       </div>
     </footer>
   );
 }
 
-/* ---------- FOOTER COLUMN ---------- */
+/* ---------------- FOOTER COLUMN ---------------- */
 function FooterColumn({
   title,
   links,
 }: {
   title: string;
-  links: string[];
+  links: {
+    label?: string;
+    href: string;
+    icon?: React.ElementType;
+  }[];
 }) {
+  const isIconOnly = links.every((l) => !l.label);
+
   return (
     <div>
       <h4 className="text-white font-semibold mb-4 tracking-wide">
         {title}
       </h4>
-      <ul className="space-y-3">
-        {links.map((link) => (
-          <li key={link}>
+
+      {/* ICON-ONLY SOCIALS */}
+      {isIconOnly ? (
+        <div className="flex items-center gap-3">
+          {links.map((link, idx) => (
             <a
-              href="#"
-              className="text-gray-400 hover:text-white transition"
+              key={idx}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                w-10 h-10
+                rounded-xl
+                bg-white
+                flex items-center justify-center
+                shadow-sm
+                hover:scale-110
+                transition-all
+              "
             >
-              {link}
+              {link.icon && (
+                <link.icon className="w-5 h-5 text-black" />
+              )}
             </a>
-          </li>
-        ))}
-      </ul>
+          ))}
+        </div>
+      ) : (
+        /* NORMAL TEXT LINKS */
+        <ul className="space-y-3">
+          {links.map((link, idx) => (
+            <li key={idx}>
+              <a
+                href={link.href}
+                className="flex items-center gap-3 text-gray-400 hover:text-white transition group"
+              >
+                {link.icon && (
+                  <link.icon className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
+                )}
+                <span>{link.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
+

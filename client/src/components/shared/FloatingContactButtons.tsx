@@ -1,11 +1,11 @@
 // src/components/shared/FloatingContactButtons.tsx - CLEAN VERSION
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  MessageCircle, 
-  Mail, 
-  Phone, 
-  X, 
+import {
+  MessageCircle,
+  Mail,
+  Phone,
+  X,
   // MessageSquare,
   ChevronUp,
 } from 'lucide-react';
@@ -63,7 +63,7 @@ const FloatingContactButtons = () => {
     const checkDevice = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkDevice();
     window.addEventListener('resize', checkDevice);
 
@@ -71,7 +71,7 @@ const FloatingContactButtons = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
-      
+
       // Show floating button after scrolling a bit
       if (scrollPosition > windowHeight * 0.2) {
         setShowButtons(true);
@@ -79,7 +79,7 @@ const FloatingContactButtons = () => {
         setShowButtons(false);
         setIsOpen(false);
       }
-      
+
       setIsScrolled(scrollPosition > 50);
     };
 
@@ -145,11 +145,10 @@ const FloatingContactButtons = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 10 }}
               transition={{ duration: 0.2 }}
-              className={`absolute ${
-                isMobile 
-                  ? 'bottom-full right-0 mb-4' 
-                  : 'bottom-full right-0 mb-4'
-              }`}
+              className={`absolute ${isMobile
+                ? 'bottom-full right-0 mb-4'
+                : 'bottom-full right-0 mb-4'
+                }`}
             >
               <div className="glass-card rounded-2xl p-4 shadow-2xl w-64">
                 {/* Header */}
@@ -174,24 +173,33 @@ const FloatingContactButtons = () => {
                     <button
                       key={option.id}
                       onClick={() => handleContactClick(option.link, option.label)}
-                      className={`flex items-center space-x-3 p-3 rounded-lg ${option.hoverColor} hover:bg-opacity-30 w-full text-left transition-all`}
+                      className={`flex items-start space-x-3 p-3 rounded-lg ${option.hoverColor} hover:bg-opacity-30 w-full text-left transition-all`}
                     >
                       <div className={`w-10 h-10 rounded-full ${option.color} flex items-center justify-center`}>
                         <option.icon className="text-white" size={18} />
                       </div>
-                      <div className="flex-1">
-                        <div className="text-white font-medium text-sm">{option.label}</div>
-                        <div className="text-gray-400 text-xs">{option.description}</div>
+
+                      <div className="flex-1 min-w-0">
+                        <div className="text-white font-medium text-sm">
+                          {option.label}
+                        </div>
+
+                        <div
+                          className={`text-gray-400 ${option.label === 'Email' ? 'text-[11px]' : 'text-xs'} break-all leading-snug max-w-[170px]`}
+                        >
+                          {option.description}
+                        </div>
                       </div>
                     </button>
+
                   ))}
                 </div>
 
                 {/* Website Link */}
                 <div className="mt-4 pt-4 border-t border-white/10">
-                  <a 
-                    href="https://kuberaminfotech.com" 
-                    target="_blank" 
+                  <a
+                    href="https://kuberaminfotech.com"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-cyan text-xs hover:text-gold transition-colors text-center block"
                   >
@@ -224,7 +232,7 @@ const FloatingContactButtons = () => {
             transition={{ duration: 2, repeat: Infinity }}
             className="absolute inset-0 bg-cyan rounded-full blur opacity-30"
           />
-          
+
           {/* Main Button */}
           <div className="relative w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-gold to-cyan rounded-full flex items-center justify-center shadow-2xl shadow-gold/30">
             <AnimatePresence mode="wait">
@@ -243,7 +251,7 @@ const FloatingContactButtons = () => {
               </motion.div>
             </AnimatePresence>
           </div>
-          
+
           {/* Hover Label (Desktop only) */}
           {!isMobile && (
             <motion.div
@@ -272,11 +280,10 @@ const FloatingContactButtons = () => {
             className="fixed bottom-6 left-6 z-50"
           >
             <div className="relative">
-              <div className={`${
-                isMobile 
-                  ? 'w-12 h-12' 
-                  : 'w-12 h-12'
-              } bg-gradient-to-br from-navy-800 to-navy-900 border border-cyan/30 rounded-full flex items-center justify-center shadow-lg`}>
+              <div className={`${isMobile
+                ? 'w-12 h-12'
+                : 'w-12 h-12'
+                } bg-gradient-to-br from-navy-800 to-navy-900 border border-cyan/30 rounded-full flex items-center justify-center shadow-lg`}>
                 <ChevronUp className="text-cyan" size={20} />
               </div>
             </div>

@@ -59,32 +59,40 @@ const caseStudies = [
     ]
   },
   {
-    id: 2,
-    title: 'Healthcare Telemedicine Platform',
-    client: 'MediCare Plus',
-    industry: 'Healthcare',
-    // duration: '6 Months',
-    // teamSize: '8 Engineers',
-    // budget: '$250K',
-    icon: HeartPulse,
-    gradient: 'from-cyan to-electric',
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&auto=format&fit=crop',
-    challenge: 'Need for secure, HIPAA-compliant telemedicine solution with video consultation and EHR integration.',
-    solution: 'Developed full-stack telemedicine platform with WebRTC video, EHR integration, and AI-powered diagnostics.',
-    results: [
-      '50k+ patients served in first year',
-      '98% patient satisfaction rate',
-      '40% reduction in hospital visits',
-      'Full HIPAA compliance achieved'
-    ],
-    technologies: ['React','Python', 'Angular', 'Node.js', 'WebRTC', 'PostgreSQL', 'AWS', 'Docker'],
-    metrics: [
-      { label: 'Patients Served', value: '50K+', icon: Users },
-      { label: 'Satisfaction', value: '98%', icon: TrendingUp },
-      { label: 'Cost Savings', value: '40%', icon: DollarSign },
-      { label: 'Uptime', value: '99.95%', icon: Shield }
-    ]
-  },
+  id: 2,
+  title: 'Travel Health & Medical Assistance Platform',
+  client: 'GlobalCare Travels',
+  industry: 'Travel & Healthcare',
+  icon: HeartPulse,
+  gradient: 'from-cyan to-emerald',
+  image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&auto=format&fit=crop',
+  challenge:
+    'Travelers lacked access to reliable healthcare guidance, emergency assistance, and medical records while traveling abroad.',
+  solution:
+    'Built a unified travel-health platform offering virtual doctor consultations, travel insurance support, nearby hospital discovery, and secure medical record access.',
+  results: [
+    '30k+ travelers assisted globally',
+    '95% traveler satisfaction rate',
+    '60% faster emergency response time',
+    '24/7 medical support across 40+ countries'
+  ],
+  technologies: [
+    'React',
+    'Angular',
+    'Node.js',
+    'Python',
+    'WebRTC',
+    'PostgreSQL',
+    'AWS',
+    'Docker'
+  ],
+  metrics: [
+    { label: 'Travelers Assisted', value: '30K+', icon: Users },
+    { label: 'Satisfaction Rate', value: '95%', icon: TrendingUp },
+    { label: 'Emergency Response', value: '60% Faster', icon: Shield },
+    { label: 'Global Coverage', value: '40+ Countries', icon: HeartPulse }
+  ]
+}, 
   {
     id: 3,
     title: 'Logistics Management System',
