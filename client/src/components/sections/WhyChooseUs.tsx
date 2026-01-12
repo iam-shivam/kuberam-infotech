@@ -468,7 +468,7 @@ function StatusCell({ item }: any) {
 
 export default function WhyChooseKuberam() {
   return (
-    <section className="section-padding bg-navy-900">
+    <section id="why-us" className="section-padding bg-navy-900">
       <div className="max-w-7xl mx-auto">
 
         {/* ---------- TITLE ---------- */}
