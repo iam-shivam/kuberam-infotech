@@ -87,7 +87,7 @@ export default function Footer() {
               //   },
               // ]}
                 links={[
-    { href: "https://linkedin.com", icon: SiLinkedin },
+    { href: "https://www.linkedin.com/company/kuberam-infotech/?viewAsMember=true", icon: SiLinkedin },
     { href: "https://twitter.com", icon: SlSocialTwitter },
     { href: "https://instagram.com", icon: SiInstagram },
     { href: "https://github.com", icon: SiGithub },
@@ -100,7 +100,7 @@ export default function Footer() {
                 { label: "Contact Us", href: "#" },
                 {
                   label: "kuberaminfotech@gmail.com",
-                  href: "mailto:kuberaminfotech@gmail.com",
+                  href: "kuberaminfotech@gmail.com",
                 },
               ]}
             />

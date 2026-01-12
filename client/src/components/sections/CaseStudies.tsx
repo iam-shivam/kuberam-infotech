@@ -60,7 +60,7 @@ const caseStudies = [
   },
   {
   id: 2,
-  title: 'Travel Health & Medical Assistance Platform',
+  title: 'Travel & Medical Assistance Platform',
   client: 'GlobalCare Travels',
   industry: 'Travel & Healthcare',
   icon: HeartPulse,
@@ -221,7 +221,7 @@ const caseStudies = [
 const industries = [
   'All Industries',
   'Retail & E-commerce',
-  'Healthcare',
+  'Travel & Healthcare',
   'Logistics',
   'FinTech',
   'Food & Beverages',
@@ -562,11 +562,11 @@ const CaseStudies = () => {
                 <div className="flex-1 overflow-y-auto p-6 md:p-8">
                   <div className="max-w-6xl mx-auto">
                     {/* Client Info */}
-                    <div className="grid md:grid-cols-4 gap-6 mb-8">
-                      <div className="glass-card p-4 rounded-xl">
+                    {/* <div className="grid md:grid-cols-4 gap-6 mb-8"> */}
+                      {/* <div className="glass-card p-4 rounded-xl">
                         <div className="text-sm text-gray-400 mb-1">Client</div>
                         <div className="text-lg font-bold text-white">{selectedCase.client}</div>
-                      </div>
+                      </div> */}
                       {/* <div className="glass-card p-4 rounded-xl">
                         <div className="text-sm text-gray-400 mb-1">Duration</div>
                         <div className="text-lg font-bold text-white">{selectedCase.duration}</div>
@@ -575,11 +575,11 @@ const CaseStudies = () => {
                         <div className="text-sm text-gray-400 mb-1">Team Size</div>
                         <div className="text-lg font-bold text-white">{selectedCase.teamSize}</div>
                       </div> */}
-                      <div className="glass-card p-4 rounded-xl">
-                        <div className="text-sm text-gray-400 mb-1">Budget</div>
+                      {/* <div className="glass-card p-4 rounded-xl">
+                        <div className="text-sm text-gray-400 mb-1">Budget</div> */}
                         {/* <div className="text-lg font-bold text-white">{selectedCase.budget}</div> */}
-                      </div>
-                    </div>
+                      {/* </div> */}
+                    {/* </div> */}
 
                     {/* Challenge & Solution */}
                     <div className="grid md:grid-cols-2 gap-8 mb-8">
@@ -630,7 +630,7 @@ const CaseStudies = () => {
                     </div>
 
                     {/* Metrics */}
-                    <div className="mb-8">
+                    {/* <div className="mb-8">
                       <h4 className="text-lg font-bold text-white mb-4">Performance Metrics</h4>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {selectedCase.metrics.map((metric, idx) => (
@@ -647,7 +647,7 @@ const CaseStudies = () => {
                           </motion.div>
                         ))}
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* Technologies */}
                     <div className="mb-8">
@@ -665,7 +665,7 @@ const CaseStudies = () => {
                     </div>
 
                     {/* CTA */}
-                    <div className="glass-card p-6 rounded-2xl">
+                    {/* <div className="glass-card p-6 rounded-2xl">
                       <div className="text-center">
                         <h4 className="text-xl font-bold text-white mb-4">
                           Ready to Achieve Similar Results?
@@ -695,7 +695,7 @@ const CaseStudies = () => {
                           </motion.button>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

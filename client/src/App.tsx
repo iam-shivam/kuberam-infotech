@@ -1,40 +1,57 @@
-// src/App.tsx
-import Header from './components/layout/Header';
-import Hero from './components/sections/Hero';
-import About from './components/sections/About';
-import Services from './components/sections/Services';
-import WhyChooseUs from './components/sections/WhyChooseUs';
+// // src/App.tsx
+// import Header from './components/layout/Header';
+// import Hero from './components/sections/Hero';
+// import About from './components/sections/About';
+// import Services from './components/sections/Services';
+// import WhyChooseUs from './components/sections/WhyChooseUs';
+// // import TechStack from './components/sections/TechStack';
+// import Contact from './components/sections/Contact';
+// import Footer from './components/layout/Footer';
+// import FloatingContactButtons from './components/shared/FloatingContactButtons';
+// // import IndustriesWeServe from './components/sections/IndustriesWeServe';
+// import CaseStudies from './components/sections/CaseStudies';
+// import TimedContactPopup from './components/sections/TimedContactPopup';
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// // import TechStack from './components/tech-stack/TechStack';
 // import TechStack from './components/sections/TechStack';
-import Contact from './components/sections/Contact';
-import Footer from './components/layout/Footer';
-import FloatingContactButtons from './components/shared/FloatingContactButtons';
-// import IndustriesWeServe from './components/sections/IndustriesWeServe';
-import CaseStudies from './components/sections/CaseStudies';
-import TimedContactPopup from './components/sections/TimedContactPopup';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-// import TechStack from './components/tech-stack/TechStack';
-import TechStack from './components/sections/TechStack';
 
+
+// function App() {
+//   return (
+//     <div className="relative">
+//       <Header />
+//       <main>
+//         <Hero />
+//         <About />
+//         <Services />
+//         {/* <IndustriesWeServe /> */}
+//         <CaseStudies />
+//         <WhyChooseUs />
+//         <TechStack />
+//         <Contact />
+//       <TimedContactPopup />
+//       </main>
+//       <Footer />
+//       <FloatingContactButtons />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "../src/components/pages/Home";
+import NotFound from "../src/components/pages/NotFound";
 
 function App() {
   return (
-    <div className="relative">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        {/* <IndustriesWeServe /> */}
-        <CaseStudies />
-        <WhyChooseUs />
-        <TechStack />
-        <Contact />
-      <TimedContactPopup />
-      </main>
-      <Footer />
-      <FloatingContactButtons />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
