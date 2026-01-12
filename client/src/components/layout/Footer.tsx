@@ -51,8 +51,7 @@ export default function Footer() {
 
           {/* RIGHT LINKS */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[auto_auto_auto] gap-x-8 gap-y-6 text-sm">
-
-
+           
             <FooterColumn
               title="Company"
               links={[
