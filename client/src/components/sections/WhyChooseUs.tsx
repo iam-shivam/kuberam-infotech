@@ -491,20 +491,28 @@ export default function WhyChooseKuberam() {
           </p>
         </motion.div>
         {/* 🔹 Badge / Label */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          viewport={{ once: true }}
-          className="flex justify-center mb-16"
-        >
-          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-cyan/10 border border-cyan/20">
-            <Brain className="text-cyan text-navy-900" size={16} />
-            <span className="text-cyan text-sm font-medium">
-              AI-Enhanced Development Process
-            </span>
-          </div>
-        </motion.div>
+           <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.1 }}
+  viewport={{ once: true }}
+  className="flex justify-center mb-16"
+>
+  <div className="
+    inline-flex items-center gap-2
+    px-4 py-2
+    rounded-full
+    bg-white/5
+    border border-white/10
+    backdrop-blur-sm
+  ">
+    <Brain className="text-cyan" size={15} />
+    <span className="text-cyan text-sm font-medium">
+      AI-Enhanced Development Process
+    </span>
+  </div>
+           </motion.div>
+
 
         {/* ---------- COMPARISON TABLE ---------- */}
         <motion.div
