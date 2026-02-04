@@ -234,10 +234,14 @@
 // src/components/sections/Contact.tsx
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Mail, Phone, CheckCircle } from "lucide-react";
+import { Mail, Phone, CheckCircle, Send } from "lucide-react";
 
 const Contact = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
+
 
   return (
     <section id="contact" className="section-padding bg-navy-900">
@@ -299,29 +303,118 @@ const Contact = () => {
               </div>
             ) : (
               <form
-                action="https://formsubmit.co/kuberaminfotech@gmail.com"
-                method="POST"
-                onSubmit={() => setIsSubmitted(true)}
                 className="space-y-6"
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  setError("");
+                  setSuccess("");
+                  setLoading(true);
+
+                  const form = e.currentTarget;
+                  const formData = new FormData(form);
+
+                  const payload = {
+                    name: formData.get("name") as string,
+                    email: formData.get("email") as string,
+                    company: formData.get("company") as string,
+                    message: formData.get("message") as string,
+                  };
+
+                  // Client-side validation
+                  if (!payload.name) {
+                    setError("Full name is required");
+                    setLoading(false);
+                    return;
+                  }
+
+                  if (!payload.email || !/^\S+@\S+\.\S+$/.test(payload.email)) {
+                    setError("Please enter a valid email address");
+                    setLoading(false);
+                    return;
+                  }
+
+                  if (!payload.message) {
+                    setError("Message cannot be empty");
+                    setLoading(false);
+                    return;
+                  }
+
+                  try {
+                    const res = await fetch(
+                      "https://kuberaminfotech.com/api/contact.php",
+                      {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(payload),
+                      }
+                    );
+
+                    const data = await res.json();
+
+                    if (!res.ok) {
+                      setError(data.error || "Something went wrong");
+                    } else {
+                      setSuccess("Message sent successfully. We’ll contact you soon.");
+                      form.reset();
+                    }
+                  } catch {
+                    setError("Network error. Please try again later.");
+                  } finally {
+                    setLoading(false);
+                  }
+                }}
               >
-                {/* hidden config */}
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_subject" value="New Contact Request - Website" />
-                <input type="hidden" name="_template" value="table" />
+                <Input
+  name="name"
+  label="Full Name *"
+  placeholder="John Doe"
+/>
 
-                <Input name="name" label="Full Name *" placeholder="John Doe" />
-                <Input name="email" label="Email Address *" placeholder="john@company" type="email" />
-                <Input name="company" label="Company" placeholder="Optional" required={false} />
-                <Textarea name="message" label="Message *" placeholder="Tell us about your project..." />
+<Input
+  name="email"
+  type="email"
+  label="Email Address *"
+  placeholder="john@company.com"
+/>
 
+<Input
+  name="company"
+  label="Company"
+  placeholder="Optional"
+  required={false}
+/>
+
+<Textarea
+  name="message"
+  label="Message *"
+  placeholder="Tell us about your project..."
+/>
+
+
+                {error && (
+                  <p className="text-sm text-red-400 font-medium">
+                    {error}
+                  </p>
+                )}
+
+                {success && (
+                  <p className="text-sm text-green-400 font-medium">
+                    {success}
+                  </p>
+                )}
                 <motion.button
+                  type="submit"
+                  disabled={loading}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  type="submit"
-                  className="w-full py-4 bg-gradient-to-r from-gold to-cyan text-navy-900 font-bold rounded-lg flex items-center justify-center gap-2"
+                  className="w-full py-4 bg-gradient-to-r from-gold to-cyan
+             text-navy-900 font-bold rounded-lg
+             flex items-center justify-center gap-2
+             disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send Message <Send size={18} />
+                  {loading ? "Sending..." : "Send Message"} <Send size={18} />
                 </motion.button>
+
               </form>
             )}
           </div>

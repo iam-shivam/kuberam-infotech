@@ -270,25 +270,83 @@
 // src/components/shared/TimedContactPopup.tsx
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Mail, CheckCircle } from "lucide-react";
+import { X, Mail, CheckCircle, Send } from "lucide-react";
 
 const TimedContactPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hasShown, setHasShown] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  /* Show popup after random delay */
   useEffect(() => {
     if (hasShown) return;
+
     const delay = Math.floor(Math.random() * (15000 - 5000 + 1)) + 5000;
     const timer = setTimeout(() => {
       setIsOpen(true);
       setHasShown(true);
     }, delay);
+
     return () => clearTimeout(timer);
   }, [hasShown]);
 
-  const handleClose = () => {
-    setIsOpen(false);
+  const handleClose = () => setIsOpen(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    if (!formData.name) return setError("Name is required");
+    if (!/^\S+@\S+\.\S+$/.test(formData.email))
+      return setError("Valid email is required");
+    if (!formData.phone) return setError("Phone number is required");
+    if (!formData.message) return setError("Message is required");
+
+    setLoading(true);
+
+    try {
+      const res = await fetch(
+        "https://kuberaminfotech.com/api/contact.php",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Something went wrong");
+      } else {
+        setSuccess(true);
+        setTimeout(() => {
+          setSuccess(false);
+          handleClose();
+          setFormData({ name: "", email: "", phone: "", message: "" });
+        }, 2500);
+      }
+    } catch {
+      setError("Network error. Try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -309,8 +367,8 @@ const TimedContactPopup = () => {
             className="relative w-full max-w-md"
           >
             <div className="glass-card rounded-3xl overflow-hidden shadow-2xl">
-              {/* Header */}
-              <div className="bg-gradient-to-r from-gold to-cyan p-4 flex justify-between">
+              {/* HEADER */}
+              <div className="bg-gradient-to-r from-gold to-cyan p-4 flex justify-between items-center">
                 <span className="text-navy-900 font-bold flex items-center gap-2">
                   <Mail size={18} /> Get Free Consultation
                 </span>
@@ -319,9 +377,9 @@ const TimedContactPopup = () => {
                 </button>
               </div>
 
-              {/* Content */}
+              {/* CONTENT */}
               <div className="p-6">
-                {isSubmitted ? (
+                {success ? (
                   <div className="text-center py-10">
                     <CheckCircle className="w-14 h-14 text-green-500 mx-auto mb-4" />
                     <h3 className="text-xl font-bold text-white">Thank You!</h3>
@@ -330,96 +388,60 @@ const TimedContactPopup = () => {
                     </p>
                   </div>
                 ) : (
-                  <form
-                    action="https://formsubmit.co/kuberaminfotech@gmail.com"
-                    method="POST"
-                    onSubmit={() => setIsSubmitted(true)}
-                    className="space-y-4"
-                  >
-                    {/* REQUIRED HIDDEN CONFIG */}
-                    <input type="hidden" name="_captcha" value="false" />
-                    <input
-                      type="hidden"
-                      name="_subject"
-                      value="Popup Consultation Request"
-                    />
-                    <input
-                      type="hidden"
-                      name="_next"
-                      value={window.location.href}
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    {error && (
+                      <p className="text-sm text-red-400 font-medium">
+                        {error}
+                      </p>
+                    )}
+
+                    <Input
+                      label="Your Name *"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="John Doe"
                     />
 
-                    {/* NAME */}
-                    <div>
-                      <label className="block text-sm text-gold font-medium mb-2">
-                        Your Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        required
-                        placeholder="John Doe"
-                        className="w-full px-4 py-3 bg-navy-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-cyan"
-                      />
-                    </div>
+                    <Input
+                      label="Email Address *"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="john@company.com"
+                    />
 
-                    {/* EMAIL */}
-                    <div>
-                      <label className="block text-sm text-gold font-medium mb-2">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        placeholder="john@company.com"
-                        className="w-full px-4 py-3 bg-navy-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-cyan"
-                      />
-                    </div>
+                    <Input
+                      label="Phone Number *"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+91 98765 43210"
+                    />
 
-                    {/* PHONE NUMBER */}
-                    <div>
-                      <label className="block text-sm text-gold font-medium mb-2">
-                        Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        required
-                        placeholder="+91 98765 43210"
-                        className="w-full px-4 py-3 bg-navy-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-cyan"
-                      />
-                    </div>
+                    <Textarea
+                      label="Project Details *"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Tell us about your project..."
+                    />
 
-                    {/* PROJECT DETAILS */}
-                    <div>
-                      <label className="block text-sm text-gold font-medium mb-2">
-                        Project Details *
-                      </label>
-                      <textarea
-                        name="message"
-                        required
-                        rows={3}
-                        placeholder="Tell us about your project..."
-                        className="w-full px-4 py-3 bg-navy-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 resize-none focus:ring-2 focus:ring-cyan"
-                      />
-                    </div>
-
-                    {/* SUBMIT */}
                     <motion.button
                       type="submit"
+                      disabled={loading}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full px-6 py-3 bg-gradient-to-r from-gold to-cyan text-navy-900 font-bold rounded-lg flex items-center justify-center gap-2"
+                      className="w-full px-6 py-3 bg-gradient-to-r from-gold to-cyan
+                                 text-navy-900 font-bold rounded-lg
+                                 flex items-center justify-center gap-2
+                                 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      Get Free Consultation
+                      {loading ? "Sending..." : "Get Free Consultation"}
+                      <Send size={16} />
                     </motion.button>
-
-                    <p className="text-gray-500 text-xs text-center mt-2">
-                      By submitting, you agree to our Privacy Policy
-                    </p>
                   </form>
-
                 )}
               </div>
             </div>
@@ -431,4 +453,38 @@ const TimedContactPopup = () => {
 };
 
 export default TimedContactPopup;
+
+/* ---------- Helpers ---------- */
+
+const Input = ({ label, ...props }: any) => (
+  <div>
+    <label className="block text-sm text-gold font-medium mb-2">
+      {label}
+    </label>
+    <input
+      {...props}
+      required
+      className="w-full px-4 py-3 bg-navy-800/50 border border-white/10
+                 rounded-lg text-white placeholder-gray-500
+                 focus:outline-none focus:ring-2 focus:ring-cyan"
+    />
+  </div>
+);
+
+const Textarea = ({ label, ...props }: any) => (
+  <div>
+    <label className="block text-sm text-gold font-medium mb-2">
+      {label}
+    </label>
+    <textarea
+      {...props}
+      required
+      rows={3}
+      className="w-full px-4 py-3 bg-navy-800/50 border border-white/10
+                 rounded-lg text-white placeholder-gray-500
+                 focus:outline-none focus:ring-2 focus:ring-cyan resize-none"
+    />
+  </div>
+);
+
 
